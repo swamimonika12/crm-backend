@@ -25,3 +25,9 @@ php artisan key:generate
 php artisan migrate
 php artisan storage:link
 php artisan db:seed
+
+Start Laravel Server
+php artisan serve
+
+Start Frontend Server
+npm run dev
