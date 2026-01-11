@@ -25,7 +25,7 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         if ($request->hasFile('profile_img')) {
             $path = $request->file('profile_img')->store('employees', 'public');
             $data['profile_img'] = $path;
@@ -40,6 +40,7 @@ class EmployeeController extends Controller
         $companies = \App\Models\Company::all();
         return view('employee.edit', compact('employee', 'companies'));
     }
+
 
     public function update(EmployeeRequest $request,string $id)
     {

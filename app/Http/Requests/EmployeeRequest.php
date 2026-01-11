@@ -27,7 +27,7 @@ class EmployeeRequest extends FormRequest
             'company_id' => 'required|exists:companies,id',
             'email'      => 'nullable|email|max:255',
             'phone'      => 'nullable|numeric|digits:10',
-            'profile_img' => 'nullable|image|mimes:png,jpg,jpeg|max:1024',
+            'profile_img' => 'nullable|image|max:1024',
         ];
     }
 
@@ -36,7 +36,7 @@ class EmployeeRequest extends FormRequest
         return [
             'company_id.exists' => 'The selected company is invalid.',
             'profile_img.max' => 'The profile picture must not be larger than 1 MB.',
-            'profile_img.mimes' => 'Only PNG and JPEG formats are supported.',
+            'profile_img.extensions' => 'Only PNG and JPEG formats are supported.',
             'phone' => 'Please enter a valid phone number.',
         ];
     }
